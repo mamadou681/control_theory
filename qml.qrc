@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>src/data/ArsAccel_data.csv</file>
+        <file>src/data/ArsGyro_data.csv</file>
+        <file>src/data/FiltersInfo.json</file>
+        <file>src/data/SonarAlt_data.csv</file>
+    </qresource>
+</RCC>

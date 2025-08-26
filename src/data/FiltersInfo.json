@@ -1,0 +1,68 @@
+{
+  "filters": [
+    {
+      "filterName": "Average filter",
+      "filterType": 0,
+      "xAxisLabel": "Time(s)",
+      "yAxisLabel": "Voltage",
+      "firstPlot": "Noisy Voltage",
+      "secondPlot": "Average filter",
+      "note": " Average filter is used for constant noizy signal"
+    },
+    {
+      "filterName": "Moving average",
+      "filterType": 1,
+      "xAxisLabel": "Time(s)",
+      "yAxisLabel": "Sonar Alt",
+      "firstPlot": "Noisy Sonar Alt",
+      "secondPlot": "Moving average",
+      "note": " Moving average filter is used for dynamic noisy signal.
+      The moving average introduces a lag because it relies on previous data.
+      The larger the window size (n), the smoother the result, but with more lag.
+      The algorithm works best for data with low variability over short intervals."
+    },
+    {
+      "filterName": "Low pass filter",
+      "filterType": 2,
+      "xAxisLabel": "Time(s)",
+      "yAxisLabel": "Sonar Alt",
+      "firstPlot": "Noisy Sonar Alt",
+      "secondPlot": "Low pass filter",
+      "note": " The most recent data point has the highest weight,
+      while previous data points have exponentially smaller weights
+      as they recede further back in time. This results in a smoother output
+      without giving too much emphasis to older data.
+      Minimal Lag: Since recent data points dominate the calculation,
+      the lag introduced is smaller compared to a moving average.
+      The lag depends on α (smoothing factor), a value between 0 and 1.
+      A smaller α  introduces less lag
+      but can make the filter noisier(more jagged). jaggedy isn't good, especially when we need to compute derivatives, such as velocity or acceleration."
+    },
+    {
+      "filterName": "Kalman filter",
+      "filterType": 3,
+      "xAxisLabel": "Time(s)",
+      "yAxisLabel": "Sonar Alt",
+      "firstPlot": "Sonar Alt",
+      "secondPlot": "Kalman filter",
+      "note": " The Kalman Filter is optimal recursive estimator combining measurements with
+      system dynamics. Key components:
+      1) State vector (position/velocity/acceleration) with transition matrix (A),
+      2) Measurement matrix (H),
+      3) Noise covariances (Q=process, R=measurement),
+      4) Adaptive Kalman gain (K) balancing predictions vs measurements,
+      5) Error covariance (P) quantifying estimate uncertainty,
+      6) Prediction-update cycle (A/Q for prediction, H/R for update).
+      Assumes linear systems; for nonlinear cases use EKF/UKF."
+    },
+    {
+      "filterName": "EKF",
+      "filterType": 4,
+      "xAxisLabel": "Time(s)",
+      "yAxisLabel": "Pitch, Roll (degrees)",
+      "firstPlot": "EKF - Pitch θ(degrees)",
+      "secondPlot": "EKF - Roll, φ(degrees)",
+      "note": " EKF note"
+    }
+  ]
+}
