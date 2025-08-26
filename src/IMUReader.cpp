@@ -7,7 +7,7 @@
 IMUReader::IMUReader(QObject *parent)
     : QObject{parent}
 {
-    //  load data
+    //  load data from gyro and acc
     loadGyroData(":/src/data/ArsGyro_data.csv");
     loadAccelData(":/src/data/ArsAccel_data.csv");
 }
